@@ -25,7 +25,7 @@ public class PostfixExpression {
     //------------------------------------------------------------------
     public int evaluate(String expression) throws InvalidNumberOfIntegersException {
         String[] elements = expression.split(" ");
-        int count;    // Ensures no more than 2 ints are entered before an operator
+        int count = 0;    // Ensures no more than 2 ints are entered before an operator
         int result;
 
         InvalidNumberOfIntegersException problem =
@@ -82,5 +82,70 @@ public class PostfixExpression {
 
         return result;
 
+    }
+
+    //------------------------------------------------------------------
+    //  Adds the top two elements of the Stack and places the result
+    //  in the stack.
+    //------------------------------------------------------------------
+    private void add() {
+        int result;
+        int operand1 = operands.pop();
+        int operand2 = operands.pop();
+
+        result = (operand1 + operand2);
+        operands.push(result);
+    }
+
+    //------------------------------------------------------------------
+    //  Subtracts the top two elements of the Stack and places the
+    //  result in the stack.
+    //------------------------------------------------------------------
+    private void subtract() {
+        int result;
+        int operand1 = operands.pop();
+        int operand2 = operands.pop();
+
+        result = (operand1 - operand2);
+        operands.push(result);
+    }
+
+    //------------------------------------------------------------------
+    //  Multiplies the top two elements of the Stack and places the
+    //  result in the stack.
+    //------------------------------------------------------------------
+    private void multiply() {
+        int result;
+        int operand1 = operands.pop();
+        int operand2 = operands.pop();
+
+        result = (operand1 * operand2);
+        operands.push(result);
+    }
+
+    //------------------------------------------------------------------
+    //  Divides the top two elements of the Stack and places the result
+    //  in the stack.
+    //------------------------------------------------------------------
+    private void divide() {
+        int result;
+        int operand1 = operands.pop();
+        int operand2 = operands.pop();
+
+        result = (operand1 / operand2);
+        operands.push(result);
+    }
+
+    //------------------------------------------------------------------
+    //  Divides the top two elements of the Stack and places the
+    //  remainder in the stack.
+    //------------------------------------------------------------------
+    private void modulo() {
+        int result;
+        int operand1 = operands.pop();
+        int operand2 = operands.pop();
+
+        result = (operand1 % operand2);
+        operands.push(result);
     }
 }
