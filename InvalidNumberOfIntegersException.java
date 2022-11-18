@@ -6,11 +6,11 @@
 //  PostfixExpression.java.
 //**********************************************************************
 
-public class TooManyIntegersException extends Exception {
+public class InvalidNumberOfIntegersException extends Exception {
     //------------------------------------------------------------------
     //  Prepares the error message for the exception.
     //------------------------------------------------------------------
-    TooManyIntegersException (String message) {
+    InvalidNumberOfIntegersException (String message) {
         super(message);
     }
 }
