@@ -5,6 +5,8 @@
 //  a postfix-operator expression which it then evaluates.
 //**********************************************************************
 
+import java.util.Scanner;
+
 public class PostfixExpressionEvaluation {
     public static void main(String[] args) {
 
