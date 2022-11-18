@@ -9,12 +9,21 @@ import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class PostfixExpression {
+    private Stack<Integer> operands;
+
+    //------------------------------------------------------------------
+    //  Constructor: sets up a PostfixEpression object with its own
+    //  Stack for operands.
+    //------------------------------------------------------------------
+    public PostfixExpression() {
+        operands = new Stack<Integer>();
+    }
+
     //------------------------------------------------------------------
     //  Evaluates the postfix expression and throws an exception if
     //  there are too many or too few integers in the expression.
     //------------------------------------------------------------------
-    public static int evaluate(String expression) throws InvalidNumberOfIntegersException {
-        Stack<Integer> operands = new Stack<Integer>();
+    public int evaluate(String expression) throws InvalidNumberOfIntegersException {
         String[] elements = expression.split(" ");
         int count;    // Ensures no more than 2 ints are entered before an operator
         int result;
