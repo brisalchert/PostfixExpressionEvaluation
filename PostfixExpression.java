@@ -3,7 +3,7 @@ import java.util.Stack;
 //**********************************************************************
 //  PostfixExpression.java                        Author: Brian Salchert
 //
-//  Provides methods for evaluating an expression using postfix
+//  Provides methods for evaluating an expression with postfix
 //  operators using the Stack class.
 //**********************************************************************
 
