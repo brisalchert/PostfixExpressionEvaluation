@@ -21,15 +21,14 @@ public class PostfixExpression {
 
     //------------------------------------------------------------------
     //  Evaluates the postfix expression and throws an exception if
-    //  there are too many or too few integers in the expression.
+    //  the expression is invalid.
     //------------------------------------------------------------------
-    public int evaluate(String expression) throws InvalidNumberOfIntegersException {
+    public int evaluate(String expression) throws InvalidExpressionException {
         String[] elements = expression.split(" ");
         int count = 0;    // Ensures no more than 2 ints are entered before an operator
         int result;
 
-        InvalidNumberOfIntegersException problem =
-            new InvalidNumberOfIntegersException("Invalid number of integers in expression.");
+        InvalidExpressionException problem;
 
         for (String element : elements) {
             int nextNumber;
@@ -41,6 +40,8 @@ public class PostfixExpression {
                 count++;
 
                 if (count > 2) {
+                    problem = new InvalidExpressionException("Too many integers.");
+
                     throw problem;
                 }
             }
@@ -63,10 +64,14 @@ public class PostfixExpression {
                             modulo();
                             break;
                         default:
-                            System.out.println("Invalid operator in expression.");
+                            problem = new InvalidExpressionException("Invalid operator.");
+
+                            throw problem;
                     }
                 }
                 catch (EmptyStackException exception2) {
+                    problem = new InvalidExpressionException("Too few integers.");
+
                     throw problem;
                 }
 
@@ -77,6 +82,8 @@ public class PostfixExpression {
         result = operands.pop();
 
         if (!operands.empty()) {
+            problem = new InvalidExpressionException("Too many integers.");
+
             throw problem;
         }
 
