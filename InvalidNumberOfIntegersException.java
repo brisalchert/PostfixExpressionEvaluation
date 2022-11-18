@@ -1,9 +1,9 @@
 //**********************************************************************
-//  TooManyIntegersException.java                 Author: Brian Salchert
+//  InvalidNumberofIntegersException.java         Author: Brian Salchert
 //
 //  Extends the Exception class to provide an exception for instances
-//  with too many integers to properly evaluate an expression in
-//  PostfixExpression.java.
+//  with an invalid number of integers to properly evaluate an
+//  expression in PostfixExpression.java.
 //**********************************************************************
 
 public class InvalidNumberOfIntegersException extends Exception {
