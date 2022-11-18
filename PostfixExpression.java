@@ -8,7 +8,7 @@ import java.util.Stack;
 //**********************************************************************
 
 public class PostfixExpression {
-    Stack<Integer> operands;
+    private Stack<Integer> operands;
 
     //------------------------------------------------------------------
     //  Constructor: Initializes the stack used to evaluate the
