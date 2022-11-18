@@ -7,6 +7,14 @@ import java.util.Stack;
 //  operators using the Stack class.
 //**********************************************************************
 
-public class PostfixExpression extends Stack {
+public class PostfixExpression {
+    Stack<Integer> operands;
 
+    //------------------------------------------------------------------
+    //  Constructor: Initializes the stack used to evaluate the
+    //  expression.
+    //------------------------------------------------------------------
+    public PostfixExpression() {
+        operands = new Stack<Integer>();
+    }
 }
