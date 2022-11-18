@@ -1,6 +1,3 @@
-import java.util.EmptyStackException;
-import java.util.Stack;
-
 //**********************************************************************
 //  PostfixExpression.java                        Author: Brian Salchert
 //
@@ -8,7 +5,14 @@ import java.util.Stack;
 //  operators using the Stack class.
 //**********************************************************************
 
+import java.util.EmptyStackException;
+import java.util.Stack;
+
 public class PostfixExpression {
+    //------------------------------------------------------------------
+    //  Evaluates the postfix expression and throws an exception if
+    //  there are too many or too few integers in the expression.
+    //------------------------------------------------------------------
     public static int evaluate(String expression) throws InvalidNumberOfIntegersException {
         Stack<Integer> operands = new Stack<Integer>();
         String[] elements = expression.split(" ");
