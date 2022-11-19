@@ -10,6 +10,7 @@ import java.util.Stack;
 
 public class PostfixExpression {
     private Stack<Integer> operands;
+    private InvalidExpressionException problem;
 
     //------------------------------------------------------------------
     //  Constructor: sets up a PostfixEpression object with its own
@@ -28,8 +29,6 @@ public class PostfixExpression {
         int count = 0;    // Ensures no more than 2 ints are entered before an operator
         int result;
 
-        InvalidExpressionException problem;
-
         for (String element : elements) {
             int nextNumber;
 
@@ -47,27 +46,7 @@ public class PostfixExpression {
             }
             catch (NumberFormatException exception) {
                 try {
-                    switch (element) {
-                        case "+":
-                            add();
-                            break;
-                        case "-":
-                            subtract();
-                            break;
-                        case "*":
-                            multiply();
-                            break;
-                        case "/":
-                            divide();
-                            break;
-                        case "%":
-                            modulo();
-                            break;
-                        default:
-                            problem = new InvalidExpressionException("Invalid operator.");
-
-                            throw problem;
-                    }
+                    doOperation(element);
                 }
                 catch (EmptyStackException exception2) {
                     problem = new InvalidExpressionException("Too few integers.");
@@ -91,6 +70,32 @@ public class PostfixExpression {
 
     }
 
+    //------------------------------------------------------------------
+    //  Determines which operation to execute based on input.
+    //------------------------------------------------------------------
+    private void doOperation(String operator) throws InvalidExpressionException {
+        switch (operator) {
+            case "+":
+                add();
+                break;
+            case "-":
+                subtract();
+                break;
+            case "*":
+                multiply();
+                break;
+            case "/":
+                divide();
+                break;
+            case "%":
+                modulo();
+                break;
+            default:
+                problem = new InvalidExpressionException("Invalid operator.");
+
+                throw problem;
+        }
+    }
     //------------------------------------------------------------------
     //  Adds the top two elements of the Stack and places the result
     //  in the stack.
