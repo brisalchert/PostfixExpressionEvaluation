@@ -26,7 +26,7 @@ public class PostfixExpression {
     //------------------------------------------------------------------
     public int evaluate(String expression) throws InvalidExpressionException {
         String[] elements = expression.split(" ");
-        int count = 0;    // Ensures no more than 2 ints are entered before an operator
+        int count = 0;    // Ensures no more than 2 ints entered before an operator
         int result;
 
         for (String element : elements) {
@@ -47,14 +47,13 @@ public class PostfixExpression {
             catch (NumberFormatException exception) {
                 try {
                     doOperation(element);
+                    count = 0;
                 }
                 catch (EmptyStackException exception2) {
                     problem = new InvalidExpressionException("Too few integers.");
 
                     throw problem;
                 }
-
-                count = 0;
             }
         }
 
