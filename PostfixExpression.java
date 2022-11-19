@@ -39,9 +39,7 @@ public class PostfixExpression {
                 count++;
 
                 if (count > 2) {
-                    problem = new InvalidExpressionException("Too many integers.");
-
-                    throw problem;
+                    tooManyInts();
                 }
             }
             catch (NumberFormatException exception) {
@@ -50,9 +48,7 @@ public class PostfixExpression {
                     count = 0;
                 }
                 catch (EmptyStackException exception2) {
-                    problem = new InvalidExpressionException("Too few integers.");
-
-                    throw problem;
+                    tooFewInts();
                 }
             }
         }
@@ -60,13 +56,29 @@ public class PostfixExpression {
         result = operands.pop();
 
         if (!operands.empty()) {
-            problem = new InvalidExpressionException("Too many integers.");
-
-            throw problem;
+            tooManyInts();
         }
 
         return result;
 
+    }
+
+    //------------------------------------------------------------------
+    //  Sets up the exception for expressions with too many integers.
+    //------------------------------------------------------------------
+    private void tooManyInts() throws InvalidExpressionException {
+        problem = new InvalidExpressionException("Too many integers.");
+
+        throw problem;
+    }
+
+    //------------------------------------------------------------------
+    //  Sets up the exception for expressions with too few integers.
+    //------------------------------------------------------------------
+    private void tooFewInts() throws InvalidExpressionException {
+        problem = new InvalidExpressionException("Too few integers.");
+
+        throw problem;
     }
 
     //------------------------------------------------------------------
