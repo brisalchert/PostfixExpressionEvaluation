@@ -98,25 +98,25 @@ public class PostfixExpression {
     }
     //------------------------------------------------------------------
     //  Adds the top two elements of the Stack and places the result
-    //  in the stack.
+    //  on the stack.
     //------------------------------------------------------------------
     private void add() {
         int result;
-        int operand1 = operands.pop();
         int operand2 = operands.pop();
+        int operand1 = operands.pop();
 
         result = (operand1 + operand2);
         operands.push(result);
     }
 
     //------------------------------------------------------------------
-    //  Subtracts the top two elements of the Stack and places the
-    //  result in the stack.
+    //  Subtracts the top element of the Stack from the next highest
+    //  element and places the result on the stack.
     //------------------------------------------------------------------
     private void subtract() {
         int result;
-        int operand1 = operands.pop();
         int operand2 = operands.pop();
+        int operand1 = operands.pop();
 
         result = (operand1 - operand2);
         operands.push(result);
@@ -124,38 +124,38 @@ public class PostfixExpression {
 
     //------------------------------------------------------------------
     //  Multiplies the top two elements of the Stack and places the
-    //  result in the stack.
+    //  result on the stack.
     //------------------------------------------------------------------
     private void multiply() {
         int result;
-        int operand1 = operands.pop();
         int operand2 = operands.pop();
+        int operand1 = operands.pop();
 
         result = (operand1 * operand2);
         operands.push(result);
     }
 
     //------------------------------------------------------------------
-    //  Divides the top two elements of the Stack and places the result
-    //  in the stack.
+    //  Divides the top element of the Stack into the next highest
+    //  element and places the result on the stack.
     //------------------------------------------------------------------
     private void divide() {
         int result;
-        int operand1 = operands.pop();
         int operand2 = operands.pop();
+        int operand1 = operands.pop();
 
         result = (operand1 / operand2);
         operands.push(result);
     }
 
     //------------------------------------------------------------------
-    //  Divides the top two elements of the Stack and places the
-    //  remainder in the stack.
+    //  Divides the top element of the Stack into the next highest
+    //  element and places the remainder on the stack.
     //------------------------------------------------------------------
     private void modulo() {
         int result;
-        int operand1 = operands.pop();
         int operand2 = operands.pop();
+        int operand1 = operands.pop();
 
         result = (operand1 % operand2);
         operands.push(result);
